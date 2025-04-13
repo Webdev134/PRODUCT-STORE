@@ -24,18 +24,22 @@ function App() {
   };
 
   return (
-    <>
+    <div style={{ display: 'flex', flexDirection: 'column' }}>
       <Header 
         cartCount={cartItems.length} 
-        onSearch={setSearchTerm} // pass the setter function
+        onSearch={setSearchTerm} 
       />
-      <SideBar />
-      <TableComponent 
-        onAddToCart={handleAddToCart}
-        onRemoveFromCart={handleRemoveFromCart}
-        searchTerm={searchTerm} // pass search term
-      />
-    </>
+      <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>
+        <SideBar />
+        <div style={{ flex: 1 }}>
+          <TableComponent 
+            onAddToCart={handleAddToCart}
+            onRemoveFromCart={handleRemoveFromCart}
+            searchTerm={searchTerm} 
+          />
+        </div>
+      </div>
+    </div>
   );
 }
 
