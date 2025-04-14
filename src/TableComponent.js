@@ -20,12 +20,13 @@ import React, {useState,useEffect} from 'react';
         <div style={{ padding: '20px', marginLeft: '100px', marginTop: '20px' }}>
           <h1>Product Gallery</h1>
           <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(5, 1fr)',
-            gap: '10px',
-            marginTop: '20px',
-            marginLeft: '100px',
-          }}>
+  display: 'grid',
+  gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
+  gap: '10px',
+  marginTop: '20px',
+  padding: '0 10px'
+}}>
+          
             {filteredProducts.map((product) => (
               <div key={product.id} style={{
                 border: '1px solid #ddd',

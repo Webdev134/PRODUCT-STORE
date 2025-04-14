@@ -4,53 +4,65 @@ import { FaShoppingCart } from 'react-icons/fa';
 
 function Header({ cartCount, onSearch }) {
   const handleInputChange = (e) => {
-    onSearch(e.target.value); 
+    onSearch(e.target.value);
   };
 
   return (
-    <header className="header" style={{display:'flex'}}>
+    <header style={{
+      display: 'flex',
+      flexWrap: 'wrap',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      padding: '10px 20px',
+      backgroundColor: '#f8f9fa',
+      gap: '10px'
+    }}>
+      {/* Logo */}
       <div style={{
-        color: "black",
-        marginLeft: "20px",
-        borderRadius: '10px',
-        backgroundColor: "rgba(225, 16, 16, 0.1)",
-        marginTop: '5px',
         fontSize: "20px",
+        backgroundColor: "rgba(225, 16, 16, 0.1)",
         padding: "10px",
-        height: "20px",
-        positin: "fixed",
+        borderRadius: "10px"
       }}>
         Product Store
       </div>
-      <form className="seach-form" onSubmit={(e) => e.preventDefault()}>
-        <input 
-          type="search" 
-          placeholder="Search..." 
+
+      {/* Search */}
+      <form onSubmit={(e) => e.preventDefault()} style={{ display: 'flex', flexWrap: 'wrap', gap: '5px' }}>
+        <input
+          type="search"
+          placeholder="Search..."
           onChange={handleInputChange}
           style={{
-            padding: '12px 16px',
+            padding: '10px',
             borderRadius: '10px',
             backgroundColor: 'rgba(225, 16, 16, 0.1)',
             color: 'green',
-            fontSize: '20px',
-            width: '200px',
-            marginTop: '1px',
-            marginLeft: '20px',
-          }} 
+            fontSize: '16px',
+            width: '150px'
+          }}
         />
-        <button type="submit" style={{ fontSize: "20px", borderRadius: '10px', padding: '12px 16px', marginLeft: '5px' }}>search</button>
+        <button type="submit" style={{
+          fontSize: "16px",
+          borderRadius: '10px',
+          padding: '10px',
+          backgroundColor: 'blue',
+          color: 'white',
+          border: 'none'
+        }}>Search</button>
       </form>
 
-      <div style={{ position: 'relative', marginLeft: '10px' }}>
-        <FaShoppingCart size={34} style={{ color: 'blue',paddingRight:"40px" }} />
+      {/* Cart */}
+      <div style={{ position: 'relative' }}>
+        <FaShoppingCart size={30} style={{ color: 'blue' }} />
         <span style={{
           position: 'absolute',
-          top: '-3px',
-          right: '15px',
+          top: '-5px',
+          right: '-10px',
           background: 'red',
           color: 'white',
           borderRadius: '50%',
-          padding: '4px 8px',
+          padding: '2px 6px',
           fontSize: '12px'
         }}>
           {cartCount}

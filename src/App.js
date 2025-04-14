@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Header from './Header'; 
 import TableComponent from './TableComponent'; 
 import SideBar from './SideBar';
+import './App.css';
+
 function App() {
   const [cartItems, setCartItems] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
@@ -24,22 +26,20 @@ function App() {
 
   return (
     <>
-    
       <Header 
         cartCount={cartItems.length} 
         onSearch={setSearchTerm} 
       />
-      
+      <div className="layout">
         <SideBar />
-      
-      <main style={{paddingTop:'20px'}}>
-      
-      <TableComponent 
-        onAddToCart={handleAddToCart}
-        onRemoveFromCart={handleRemoveFromCart}
-        searchTerm={searchTerm} 
-      />
-      </main>
+        <main>
+          <TableComponent 
+            onAddToCart={handleAddToCart}
+            onRemoveFromCart={handleRemoveFromCart}
+            searchTerm={searchTerm} 
+          />
+        </main>
+      </div>
     </>
   );
 }
