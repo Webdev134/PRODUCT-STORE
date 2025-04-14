@@ -2,7 +2,7 @@ function SideBar() {
   return (
     <div className="sidebar" style={{
       height: '10vh',
-      width: '160px',
+      width: '100px',
       backgroundColor:'green',
       color: 'white',
       padding: '20px',
