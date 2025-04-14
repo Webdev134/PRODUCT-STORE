@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import Header from './Header'; 
-import SideBar from './SideBar';
 import TableComponent from './TableComponent'; 
-
+import SideBar from './SideBar';
 function App() {
   const [cartItems, setCartItems] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
@@ -24,22 +23,24 @@ function App() {
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column' }}>
+    <>
+    
       <Header 
         cartCount={cartItems.length} 
         onSearch={setSearchTerm} 
       />
-      <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>
+      
         <SideBar />
-        <div style={{ flex: 1 }}>
-          <TableComponent 
-            onAddToCart={handleAddToCart}
-            onRemoveFromCart={handleRemoveFromCart}
-            searchTerm={searchTerm} 
-          />
-        </div>
-      </div>
-    </div>
+      
+      <main style={{paddingTop:'20px'}}>
+      
+      <TableComponent 
+        onAddToCart={handleAddToCart}
+        onRemoveFromCart={handleRemoveFromCart}
+        searchTerm={searchTerm} 
+      />
+      </main>
+    </>
   );
 }
 
